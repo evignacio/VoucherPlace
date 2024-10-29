@@ -9,6 +9,6 @@
         <artifactId>voucherplace</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>org.techchallenge.vendas</groupId>
-    <artifactId>vendas</artifactId>
+    <groupId>org.techchallenge.gestaocontas</groupId>
+    <artifactId>gestaocontas</artifactId>
 </project>

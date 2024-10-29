@@ -1,4 +1,4 @@
-package org.techchallenge;
+package org.techchallenge.vendas.service;
 
 import org.springframework.stereotype.Service;
 
