@@ -15,9 +15,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @Embeddable
 public class Telefone {
-    @Column(name = "numero", nullable = false)
+    @Column(name = "telefone_numero", nullable = false)
     private String numero;
     @Enumerated(EnumType.STRING)
-    @Column(name = "tipo", nullable = false)
+    @Column(name = "telefone_tipo", nullable = false)
     private TipoTelefone tipo;
 }

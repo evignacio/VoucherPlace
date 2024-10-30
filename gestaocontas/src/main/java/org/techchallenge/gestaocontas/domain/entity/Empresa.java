@@ -1,4 +1,4 @@
-package org.techchallenge.gestaocontas.domain;
+package org.techchallenge.gestaocontas.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -35,6 +35,14 @@ public class Empresa implements Serializable {
     private Endereco endereco;
     @Embedded
     private Contato contato;
+
+    public Empresa(String nomeFantasia, String razaoSocial, Cnpj cnpj, Endereco endereco, Contato contato) {
+        this.nomeFantasia = nomeFantasia;
+        this.razaoSocial = razaoSocial;
+        this.cnpj = cnpj;
+        this.endereco = endereco;
+        this.contato = contato;
+    }
 
     @Override
     public boolean equals(Object o) {
