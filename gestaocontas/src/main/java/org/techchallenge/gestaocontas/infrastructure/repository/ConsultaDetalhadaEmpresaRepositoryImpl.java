@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import org.techchallenge.gestaocontas.application.dto.DadosComplementaresEmpresaDTO;
 import org.techchallenge.gestaocontas.domain.repository.ConsultaDetalhadaEmpresaRepository;
 import org.techchallenge.gestaocontas.domain.valueobject.Cnpj;
-import org.techchallenge.gestaocontas.infrastructure.repository.integration.http.BiroHttpClient;
+import org.techchallenge.gestaocontas.infrastructure.integration.http.BiroHttpClient;
 
 @Repository
 @RequiredArgsConstructor

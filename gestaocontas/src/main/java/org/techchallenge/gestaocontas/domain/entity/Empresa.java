@@ -5,9 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.techchallenge.gestaocontas.domain.valueobject.Cnpj;
-import org.techchallenge.gestaocontas.domain.valueobject.Contato;
-import org.techchallenge.gestaocontas.domain.valueobject.Endereco;
+import org.techchallenge.gestaocontas.domain.valueobject.*;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -18,13 +16,9 @@ import java.util.Objects;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Empresa implements Serializable {
+public class Empresa extends Usuario implements Serializable {
 
     private static final long serialVersionUID = -6602733079927740217L;
-    @Id
-    @GeneratedValue
-    @Column(name = "id", nullable = false)
-    private String id;
     @Column(name = "nomeFantasia")
     private String nomeFantasia;
     @Column(name = "razaoSocial", nullable = false)
@@ -36,7 +30,8 @@ public class Empresa implements Serializable {
     @Embedded
     private Contato contato;
 
-    public Empresa(String nomeFantasia, String razaoSocial, Cnpj cnpj, Endereco endereco, Contato contato) {
+    public Empresa(Email emailAcesso, String nomeFantasia, String razaoSocial, Cnpj cnpj, Endereco endereco, Contato contato) {
+        this.setEmailAcesso(emailAcesso);
         this.nomeFantasia = nomeFantasia;
         this.razaoSocial = razaoSocial;
         this.cnpj = cnpj;
@@ -49,11 +44,11 @@ public class Empresa implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Empresa empresa = (Empresa) o;
-        return Objects.equals(id, empresa.id);
+        return Objects.equals(super.getId(), empresa.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id);
+        return Objects.hashCode(super.getId());
     }
 }

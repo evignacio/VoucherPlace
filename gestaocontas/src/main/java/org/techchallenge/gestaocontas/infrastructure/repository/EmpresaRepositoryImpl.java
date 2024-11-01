@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.techchallenge.gestaocontas.domain.entity.Empresa;
 import org.techchallenge.gestaocontas.domain.repository.EmpresaRepository;
-import org.techchallenge.gestaocontas.infrastructure.repository.persistence.EmpresaJPARepository;
+import org.techchallenge.gestaocontas.infrastructure.persistence.EmpresaJPARepository;
 
 @Repository
 @RequiredArgsConstructor

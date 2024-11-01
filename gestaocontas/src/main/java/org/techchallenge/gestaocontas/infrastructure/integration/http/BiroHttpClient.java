@@ -1,4 +1,4 @@
-package org.techchallenge.gestaocontas.infrastructure.repository.integration.http;
+package org.techchallenge.gestaocontas.infrastructure.integration.http;
 
 import org.springframework.stereotype.Component;
 import org.techchallenge.gestaocontas.application.dto.DadosComplementaresEmpresaDTO;

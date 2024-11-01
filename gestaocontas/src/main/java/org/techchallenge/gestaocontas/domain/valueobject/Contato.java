@@ -1,5 +1,7 @@
 package org.techchallenge.gestaocontas.domain.valueobject;
 
+import jakarta.persistence.AttributeOverride;
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Embedded;
 import lombok.AllArgsConstructor;
@@ -16,5 +18,6 @@ public class Contato {
     @Embedded
     private Telefone telefone;
     @Embedded
+    @AttributeOverride(name = "email", column = @Column(name = "emailContato"))
     private Email email;
 }

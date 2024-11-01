@@ -4,6 +4,7 @@ import org.techchallenge.gestaocontas.application.dto.DadosComplementaresEmpresa
 import org.techchallenge.gestaocontas.domain.entity.Empresa;
 import org.techchallenge.gestaocontas.domain.valueobject.Cnpj;
 import org.techchallenge.gestaocontas.domain.valueobject.Contato;
+import org.techchallenge.gestaocontas.domain.valueobject.Email;
 import org.techchallenge.gestaocontas.domain.valueobject.Endereco;
 
 public abstract class EmpresaFactory {
@@ -12,7 +13,7 @@ public abstract class EmpresaFactory {
 
     }
 
-    public static Empresa criar(Cnpj cnpj, Contato contato, DadosComplementaresEmpresaDTO dadosComplementareEmpresa) {
+    public static Empresa criar(Email emailAcesso, Cnpj cnpj, Contato contato, DadosComplementaresEmpresaDTO dadosComplementareEmpresa) {
         if (dadosComplementareEmpresa.comRestricao())
             throw new RuntimeException("Nao foi possivel seguir com o cadastro da empresa, empresa com restricao na receita");
 
@@ -27,6 +28,7 @@ public abstract class EmpresaFactory {
         );
 
         return new Empresa(
+                emailAcesso,
                 dadosComplementareEmpresa.nomeFantasia(),
                 dadosComplementareEmpresa.razaoSocial(),
                 cnpj,
