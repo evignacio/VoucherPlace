@@ -19,7 +19,7 @@ public class CadastroEmpresaService {
     private final GerarSenhaService gerarSenhaService;
     private final NotificacaoRepository notificacaoRepository;
 
-    public void cadastrar(Email emailAcesso, Cnpj cnpj, Contato contato) {
+    public void cadastrar(Cnpj cnpj, Email emailAcesso, Contato contato) {
         var dadosComplementaresEmpresa = this.consultaDetalhadaEmpresaRepository.consultar(cnpj);
         var empresa = EmpresaFactory.criar(emailAcesso, cnpj, contato, dadosComplementaresEmpresa);
         var senha = this.gerarSenhaService.gerarSenha(cnpj.getCnpj());

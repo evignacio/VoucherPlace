@@ -20,4 +20,9 @@ public class Telefone {
     @Enumerated(EnumType.STRING)
     @Column(name = "telefone_tipo", nullable = false)
     private TipoTelefone tipo;
+
+    public Telefone(String numero) {
+        this.numero = numero;
+        this.tipo = TipoTelefone.FIXO;
+    }
 }

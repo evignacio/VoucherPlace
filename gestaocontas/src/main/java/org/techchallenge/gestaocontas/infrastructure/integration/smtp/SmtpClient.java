@@ -6,8 +6,11 @@ import org.springframework.stereotype.Component;
 public class SmtpClient {
     public void enviarEmail(String remetente, String mensagem) {
         System.out.printf("""
-                Remetente: %s
-                Mensagem: %s
-                %n""", remetente, mensagem);
+                ##---------------------------------------------##
+                Remetente: %s 
+                ##---------------------------------------------##   
+                Mensagem: %s           
+                ##---------------------------------------------##
+                """, remetente, mensagem);
     }
 }
