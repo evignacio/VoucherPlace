@@ -10,18 +10,19 @@ import org.techchallenge.gestaocontas.domain.valueobject.Contato;
 import org.techchallenge.gestaocontas.domain.valueobject.Email;
 import org.techchallenge.gestaocontas.domain.valueobject.Telefone;
 import org.techchallenge.gestaocontas.web.v1.request.CadastroEmpresaRequest;
+import org.techchallenge.gestaocontas.web.v1.response.Response;
 
 @RestController
 @RequestMapping("/empresa")
 @RequiredArgsConstructor
-public class EmpresaController {
+public class CadastroEmpresaController {
 
     private final CadastroEmpresaService cadastroEmpresaService;
 
     @PostMapping
-    public ResponseEntity<Void> listar(@RequestBody CadastroEmpresaRequest request) {
+    public ResponseEntity<Response> cadastrar(@RequestBody CadastroEmpresaRequest request) {
         this.cadastroEmpresaService.cadastrar(this.obterCnpj(request), this.obterEmailAcesso(request), this.obterContato(request));
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(Response.sucesso(), HttpStatus.CREATED);
     }
 
     private Cnpj obterCnpj(CadastroEmpresaRequest request) {
