@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.techchallenge.gestaocontas.domain.exception.ApplicationException;
 import org.techchallenge.gestaocontas.domain.exception.ExceptionType;
-import org.techchallenge.resource.v1.response.Resposta;
+import org.techchallenge.resource.v1.Resposta;
 
 import java.util.Iterator;
-import java.util.List;
 
 @ControllerAdvice
 public class ControllerHandlerException {

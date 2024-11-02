@@ -1,4 +1,4 @@
-package org.techchallenge.resource.v1;
+package org.techchallenge.resource.v1.gestaocontas;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -10,11 +10,11 @@ import org.techchallenge.gestaocontas.domain.valueobject.Cnpj;
 import org.techchallenge.gestaocontas.domain.valueobject.Contato;
 import org.techchallenge.gestaocontas.domain.valueobject.Email;
 import org.techchallenge.gestaocontas.domain.valueobject.Telefone;
-import org.techchallenge.resource.v1.request.CadastroEmpresaRequest;
-import org.techchallenge.resource.v1.response.Resposta;
+import org.techchallenge.resource.v1.gestaocontas.request.CadastroEmpresaRequest;
+import org.techchallenge.resource.v1.Resposta;
 
 @RestController
-@RequestMapping("/empresa")
+@RequestMapping("/empresas")
 @RequiredArgsConstructor
 public class CadastroEmpresaController {
 
@@ -22,19 +22,19 @@ public class CadastroEmpresaController {
 
     @PostMapping
     public ResponseEntity<Resposta> cadastrar(@RequestBody @Valid CadastroEmpresaRequest request) {
-        this.cadastroEmpresaService.cadastrar(this.obterCnpj(request), this.obterEmailAcesso(request), this.obterContato(request));
+        this.cadastroEmpresaService.cadastrar(this.toCnpj(request), this.toEmail(request), this.toContato(request));
         return new ResponseEntity<>(Resposta.criar(), HttpStatus.CREATED);
     }
 
-    private Cnpj obterCnpj(CadastroEmpresaRequest request) {
+    private Cnpj toCnpj(CadastroEmpresaRequest request) {
         return new Cnpj(request.cnpj());
     }
 
-    private Email obterEmailAcesso(CadastroEmpresaRequest request) {
+    private Email toEmail(CadastroEmpresaRequest request) {
         return new Email(request.emailAcesso());
     }
 
-    private Contato obterContato(CadastroEmpresaRequest request) {
+    private Contato toContato(CadastroEmpresaRequest request) {
         var emailContato = new Email(request.emailContato());
         var telefone = new Telefone(request.telefone().ddd(), request.telefone().numero());
         return new Contato(telefone, emailContato);

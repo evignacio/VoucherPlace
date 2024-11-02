@@ -28,14 +28,12 @@ public class Telefone {
     private TipoTelefone tipo;
 
     public Telefone(String ddd, String numero) {
-        this.validarDDD(ddd);
-        this.validarNumero(numero);
-        this.ddd = ddd;
-        this.numero = numero;
+        this.setDdd(ddd);
+        this.setNumero(numero);
         this.tipo = this.getTipo();
     }
 
-    private void validarDDD(@NotNull String ddd) {
+    private void setDdd(@NotNull String ddd) {
         var exception = ApplicationException.buildValidationException("DDD invalido");
 
         if (ddd.isEmpty())
@@ -46,9 +44,11 @@ public class Telefone {
 
         if (ddd.length() != 2)
             throw exception;
+
+        this.ddd = ddd;
     }
 
-    private void validarNumero(@NotNull String numero) {
+    private void setNumero(@NotNull String numero) {
         var exception = ApplicationException.buildValidationException("Numero invalido");
 
         if (numero.isEmpty())
@@ -59,6 +59,8 @@ public class Telefone {
 
         if (numero.length() < 8 || numero.length() > 9)
             throw exception;
+
+        this.numero = numero;
     }
 
     public TipoTelefone getTipo() {

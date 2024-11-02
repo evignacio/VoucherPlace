@@ -1,6 +1,5 @@
 package org.techchallenge.gestaocontas.domain.valueobject;
 
-import com.zaxxer.hikari.util.IsolationLevel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotNull;
@@ -30,17 +29,16 @@ public class Endereco {
     private String cep;
 
     public Endereco(@NotNull String logradouro, @NotNull String numero, String complemento, @NotNull String bairro, @NotNull String cidade, @NotNull String estado, @NotNull String cep) {
-        this.validarCep(cep);
         this.logradouro = logradouro;
         this.numero = numero;
         this.complemento = complemento;
         this.bairro = bairro;
         this.cidade = cidade;
         this.estado = estado;
-        this.cep = cep;
+        this.setCep(cep);
     }
 
-    private void validarCep(@NotNull String cep) {
+    private void setCep(@NotNull String cep) {
         var exception = ApplicationException.buildValidationException("Cep invalido");
 
         if (cep.isEmpty())
@@ -51,5 +49,7 @@ public class Endereco {
 
         if (cep.length() != 8)
             throw exception;
+
+        this.cep = cep;
     }
 }

@@ -18,11 +18,10 @@ public class Cnpj {
     private String cnpj;
 
     public Cnpj(String cnpj) {
-        this.validar(cnpj);
-        this.cnpj = cnpj;
+        this.setCnpj(cnpj);
     }
 
-    private void validar(String cnpj) {
+    private void setCnpj(String cnpj) {
         var exception = ApplicationException.buildValidationException("CNPJ invalido");
 
         if (Objects.isNull(cnpj) || cnpj.isBlank())
@@ -31,8 +30,9 @@ public class Cnpj {
         cnpj = cnpj.replace(" ", "");
         cnpj = cnpj.replaceAll("\\D", "");
 
-        if (cnpj.length() != 14) {
+        if (cnpj.length() != 14)
             throw exception;
-        }
+
+        this.cnpj = cnpj;
     }
 }

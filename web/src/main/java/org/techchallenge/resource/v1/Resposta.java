@@ -1,4 +1,4 @@
-package org.techchallenge.resource.v1.response;
+package org.techchallenge.resource.v1;
 
 import lombok.Getter;
 

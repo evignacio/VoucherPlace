@@ -15,11 +15,10 @@ public class Email {
     private String email;
 
     public Email(String email) {
-        this.validar(email);
-        this.email = email;
+        this.setEmail(email);
     }
 
-    private void validar(@NotNull String email) {
+    private void setEmail(@NotNull String email) {
         var exception = ApplicationException.buildValidationException("Email invalido");
 
         if (email.isBlank() || email.length() < 5 || email.length() > 36)
@@ -30,6 +29,8 @@ public class Email {
 
         if (!email.contains("@"))
             throw exception;
+
+        this.email = email;
     }
 
 }
