@@ -1,4 +1,4 @@
-package org.techchallenge.web.v1.request;
+package org.techchallenge.resource.v1.request;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;

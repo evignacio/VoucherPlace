@@ -1,11 +1,11 @@
-package org.techchallenge.web.v1.handler;
+package org.techchallenge.resource.v1.handler;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.techchallenge.gestaocontas.domain.exception.ApplicationException;
-import org.techchallenge.web.v1.response.Resposta;
+import org.techchallenge.resource.v1.response.Resposta;
 
 @ControllerAdvice
 public class ControllerHandlerException {

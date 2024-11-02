@@ -8,7 +8,7 @@
         <artifactId>voucherplace</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>app</artifactId>
+    <artifactId>web</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.techchallenge.vendas</groupId>

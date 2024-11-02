@@ -1,18 +1,17 @@
-package org.techchallenge.web.v1;
+package org.techchallenge.resource.v1;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.techchallenge.gestaocontas.application.service.CadastroEmpresaService;
 import org.techchallenge.gestaocontas.domain.valueobject.Cnpj;
 import org.techchallenge.gestaocontas.domain.valueobject.Contato;
 import org.techchallenge.gestaocontas.domain.valueobject.Email;
 import org.techchallenge.gestaocontas.domain.valueobject.Telefone;
-import org.techchallenge.web.v1.request.CadastroEmpresaRequest;
-import org.techchallenge.web.v1.response.Resposta;
+import org.techchallenge.resource.v1.request.CadastroEmpresaRequest;
+import org.techchallenge.resource.v1.response.Resposta;
 
 @RestController
 @RequestMapping("/empresa")

@@ -79,7 +79,7 @@
 
 
     <modules>
-        <module>app</module>
+        <module>web</module>
         <module>vendas</module>
         <module>checkout</module>
         <module>gestaocontas</module>
