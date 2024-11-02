@@ -1,15 +1,16 @@
 package org.techchallenge.gestaocontas.domain.valueobject;
 
+import com.zaxxer.hikari.util.IsolationLevel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import lombok.AllArgsConstructor;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.techchallenge.gestaocontas.domain.exception.ApplicationException;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
 public class Endereco {
@@ -27,4 +28,28 @@ public class Endereco {
     private String estado;
     @Column(name = "cep", nullable = false)
     private String cep;
+
+    public Endereco(@NotNull String logradouro, @NotNull String numero, String complemento, @NotNull String bairro, @NotNull String cidade, @NotNull String estado, @NotNull String cep) {
+        this.validarCep(cep);
+        this.logradouro = logradouro;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.cep = cep;
+    }
+
+    private void validarCep(@NotNull String cep) {
+        var exception = ApplicationException.buildValidationException("Cep invalido");
+
+        if (cep.isEmpty())
+            throw exception;
+
+        cep = cep.replace(" ", "");
+        cep = cep.replaceAll("\\D", "");
+
+        if (cep.length() != 8)
+            throw exception;
+    }
 }
