@@ -83,6 +83,7 @@
         <module>vendas</module>
         <module>checkout</module>
         <module>gestaocontas</module>
+        <module>common</module>
     </modules>
 
 </project>
