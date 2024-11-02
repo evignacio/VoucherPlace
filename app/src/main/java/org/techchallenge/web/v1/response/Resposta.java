@@ -10,8 +10,12 @@ public class Resposta {
         this.mensagem = mensagem;
     }
 
-    public static Resposta sucesso() {
+    public static Resposta criar() {
         return new Resposta(new Mensagem(0, "Operacao realizada com sucesso"));
+    }
+
+    public static Resposta criar(int codigo, String mensagem) {
+        return new Resposta(new Mensagem(codigo, mensagem));
     }
 
     @Getter

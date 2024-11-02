@@ -3,6 +3,7 @@ package org.techchallenge.gestaocontas.domain.service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.techchallenge.gestaocontas.domain.exception.ApplicationException;
 
 @Service
 public class GerarSenhaService {
@@ -11,8 +12,8 @@ public class GerarSenhaService {
     public String gerarSenha(String identificador) {
         identificador = identificador.replace(" ", "");
 
-        if(identificador.length() < 4)
-            throw new IllegalArgumentException("O identificador para geracao de senha deve ter no minimo 4 caracteres");
+        if (identificador.length() < 4)
+            throw ApplicationException.buildBusinessException("O identificador para geracao de senha deve ter no minimo 4 caracteres");
 
         return identificador.substring(0, 4) + "@" + String.valueOf(Math.random()).substring(0, 4);
     }

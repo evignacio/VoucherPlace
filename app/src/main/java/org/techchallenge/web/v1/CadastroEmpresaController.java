@@ -24,7 +24,7 @@ public class CadastroEmpresaController {
     @PostMapping
     public ResponseEntity<Resposta> cadastrar(@RequestBody @Valid CadastroEmpresaRequest request) {
         this.cadastroEmpresaService.cadastrar(this.obterCnpj(request), this.obterEmailAcesso(request), this.obterContato(request));
-        return new ResponseEntity<>(Resposta.sucesso(), HttpStatus.CREATED);
+        return new ResponseEntity<>(Resposta.criar(), HttpStatus.CREATED);
     }
 
     private Cnpj obterCnpj(CadastroEmpresaRequest request) {
