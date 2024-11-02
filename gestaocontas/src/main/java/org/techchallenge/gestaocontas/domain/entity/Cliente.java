@@ -1,19 +1,17 @@
 package org.techchallenge.gestaocontas.domain.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.techchallenge.gestaocontas.domain.valueobject.Cpf;
-import org.techchallenge.gestaocontas.domain.valueobject.Email;
-import org.techchallenge.gestaocontas.domain.valueobject.Telefone;
-import org.techchallenge.gestaocontas.domain.valueobject.Usuario;
+import org.techchallenge.gestaocontas.domain.valueobject.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -31,10 +29,14 @@ public class Cliente extends Usuario implements Serializable {
     private LocalDate dataNascimento;
     @Embedded
     private Telefone telefone;
-    //private Set<Endereco> enderecos = new HashSet<>();
+    @ElementCollection
+    @CollectionTable(name = "cliente_endereco", joinColumns = @JoinColumn(name = "cliente_id"))
+    private Set<Endereco> enderecos = new HashSet<>();
 
 
-    public Cliente(Email emailAcesso, String senhaAcesso, String nome, String sobrenome, Cpf cpf, LocalDate dataNascimento, Telefone telefone) {
+    public Cliente(@NotNull Email emailAcesso, @NotNull String senhaAcesso, @NotNull String nome,
+                   @NotNull String sobrenome, @NotNull Cpf cpf, @NotNull LocalDate dataNascimento,
+                   @NotNull Telefone telefone) {
         this.setEmailAcesso(emailAcesso);
         this.setSenhaAcesso(senhaAcesso);
         this.nome = nome;
@@ -42,6 +44,10 @@ public class Cliente extends Usuario implements Serializable {
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
         this.telefone = telefone;
+    }
+
+    public void adicionarEndereco(Endereco endereco) {
+        this.enderecos.add(endereco);
     }
 
     @Override
