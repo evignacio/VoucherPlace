@@ -11,6 +11,6 @@ public abstract class ProdutoFactory {
     }
 
     public static Produto criar(String nome, String sku, String fabricante, BigDecimal preco) {
-        return new Produto(nome, sku, fabricante, preco);
+        return new Produto(nome, sku, fabricante, preco, null);
     }
 }
