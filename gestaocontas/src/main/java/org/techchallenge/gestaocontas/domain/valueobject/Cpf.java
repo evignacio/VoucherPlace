@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.techchallenge.gestaocontas.domain.exception.ApplicationException;
+import org.techchallenge.common.exception.ApplicationException;
 
 @Getter
 @Setter

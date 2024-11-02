@@ -6,8 +6,8 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.techchallenge.gestaocontas.domain.exception.ApplicationException;
-import org.techchallenge.gestaocontas.domain.exception.ExceptionType;
+import org.techchallenge.common.exception.ApplicationException;
+import org.techchallenge.common.exception.ExceptionType;
 import org.techchallenge.resource.v1.Resposta;
 
 import java.util.Iterator;

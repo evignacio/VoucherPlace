@@ -11,7 +11,7 @@ import org.techchallenge.gestaocontas.domain.service.GerarSenhaService;
 import org.techchallenge.gestaocontas.domain.valueobject.Cnpj;
 import org.techchallenge.gestaocontas.domain.valueobject.Contato;
 import org.techchallenge.gestaocontas.domain.valueobject.Email;
-import org.techchallenge.gestaocontas.domain.exception.ApplicationException;
+import org.techchallenge.common.exception.ApplicationException;
 
 @Service
 @RequiredArgsConstructor

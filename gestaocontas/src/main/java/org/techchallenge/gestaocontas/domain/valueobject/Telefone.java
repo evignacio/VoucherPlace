@@ -9,9 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.techchallenge.gestaocontas.domain.exception.ApplicationException;
-
-import java.util.Objects;
+import org.techchallenge.common.exception.ApplicationException;
 
 @Getter
 @Setter

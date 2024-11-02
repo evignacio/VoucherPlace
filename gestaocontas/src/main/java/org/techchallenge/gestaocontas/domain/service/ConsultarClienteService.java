@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.techchallenge.gestaocontas.domain.entity.Cliente;
 import org.techchallenge.gestaocontas.domain.repository.ClienteRepository;
-import org.techchallenge.gestaocontas.domain.exception.ApplicationException;
+import org.techchallenge.common.exception.ApplicationException;
 import org.techchallenge.gestaocontas.domain.valueobject.Cpf;
 
 @Service

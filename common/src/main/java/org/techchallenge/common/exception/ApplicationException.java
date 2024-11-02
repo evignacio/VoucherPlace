@@ -1,4 +1,4 @@
-package org.techchallenge.gestaocontas.domain.exception;
+package org.techchallenge.common.exception;
 
 public class ApplicationException extends RuntimeException {
     private final ExceptionType exceptionType;
