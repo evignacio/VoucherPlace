@@ -1,17 +1,17 @@
-package org.techchallenge.gestaocontas.web.v1.response;
+package org.techchallenge.web.v1.response;
 
 import lombok.Getter;
 
 @Getter
-public class Response {
+public class Resposta {
     private final Mensagem mensagem;
 
-    private Response(Mensagem mensagem) {
+    private Resposta(Mensagem mensagem) {
         this.mensagem = mensagem;
     }
 
-    public static Response sucesso() {
-        return new Response(new Mensagem(0, "Operacao realizada com sucesso"));
+    public static Resposta sucesso() {
+        return new Resposta(new Mensagem(0, "Operacao realizada com sucesso"));
     }
 
     @Getter

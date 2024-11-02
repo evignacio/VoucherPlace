@@ -15,13 +15,16 @@ import lombok.Setter;
 @NoArgsConstructor
 @Embeddable
 public class Telefone {
+    @Column(name = "telefone_ddd", nullable = false)
+    private String ddd;
     @Column(name = "telefone_numero", nullable = false)
     private String numero;
     @Enumerated(EnumType.STRING)
     @Column(name = "telefone_tipo", nullable = false)
     private TipoTelefone tipo;
 
-    public Telefone(String numero) {
+    public Telefone(String ddd, String numero) {
+        this.ddd = ddd;
         this.numero = numero;
         this.tipo = TipoTelefone.FIXO;
     }

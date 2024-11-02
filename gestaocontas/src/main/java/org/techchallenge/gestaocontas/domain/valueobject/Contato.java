@@ -18,6 +18,6 @@ public class Contato {
     @Embedded
     private Telefone telefone;
     @Embedded
-    @AttributeOverride(name = "email", column = @Column(name = "emailContato"))
+    @AttributeOverride(name = "email", column = @Column(name = "emailContato", nullable = false))
     private Email email;
 }
