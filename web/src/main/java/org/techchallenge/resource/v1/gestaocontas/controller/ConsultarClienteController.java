@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.techchallenge.gestaocontas.application.dto.ClienteDTO;
+import org.techchallenge.common.dto.ClienteDTO;
 import org.techchallenge.gestaocontas.application.service.ConsultarClienteService;
 import org.techchallenge.resource.v1.Resposta;
 

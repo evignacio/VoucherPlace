@@ -6,7 +6,7 @@ import org.techchallenge.gestaocontas.domain.entity.factory.EmpresaFactory;
 import org.techchallenge.gestaocontas.domain.repository.ConsultaDetalhadaEmpresaRepository;
 import org.techchallenge.gestaocontas.domain.repository.EmpresaRepository;
 import org.techchallenge.gestaocontas.domain.repository.NotificacaoRepository;
-import org.techchallenge.gestaocontas.domain.service.EmpresaService;
+import org.techchallenge.gestaocontas.domain.service.EmpresaServiceImpl;
 import org.techchallenge.gestaocontas.domain.service.GestaoAcessosService;
 import org.techchallenge.gestaocontas.domain.valueobject.Cnpj;
 import org.techchallenge.gestaocontas.domain.valueobject.Contato;
@@ -20,10 +20,10 @@ public class CadastroEmpresaService {
     private final EmpresaRepository empresaRepository;
     private final GestaoAcessosService gerarSenhaService;
     private final NotificacaoRepository notificacaoRepository;
-    private final EmpresaService consultarEmpresaService;
+    private final EmpresaServiceImpl consultarEmpresaService;
 
     public long cadastrar(Cnpj cnpj, Email emailAcesso, Contato contato) {
-        if (consultarEmpresaService.cadastroJaRealizado(cnpj))
+        if (consultarEmpresaService.existe(cnpj.getCnpj()))
             throw ApplicationException.buildBusinessException("Empresa ja cadastrada");
 
         var dadosComplementaresEmpresa = this.consultaDetalhadaEmpresaRepository.consultar(cnpj);

@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -18,8 +17,9 @@ import java.util.UUID;
 public class Pagamento implements Serializable {
     private static final long serialVersionUID = 2152152422441766993L;
     @Id
+    @GeneratedValue
     @Column(name = "id", nullable = false)
-    private String id;
+    private long id;
     @OneToOne
     @JoinColumn(name = "pedido_id", referencedColumnName = "id")
     private Pedido pedido;
@@ -33,7 +33,6 @@ public class Pagamento implements Serializable {
     private LocalDate dataPagamento;
 
     public Pagamento(Pedido pedido, BigDecimal valor, MetodoPagamento metodoPagamento, int quantidadeParcelas, LocalDate dataPagamento) {
-        this.id = UUID.randomUUID().toString();
         this.pedido = pedido;
         this.valor = valor;
         this.metodoPagamento = metodoPagamento;
