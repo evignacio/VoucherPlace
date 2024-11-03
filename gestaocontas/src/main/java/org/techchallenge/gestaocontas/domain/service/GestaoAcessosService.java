@@ -3,10 +3,10 @@ package org.techchallenge.gestaocontas.domain.service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.techchallenge.gestaocontas.domain.exception.ApplicationException;
+import org.techchallenge.common.exception.ApplicationException;
 
 @Service
-public class GerarSenhaService {
+public class GestaoAcessosService {
     private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     public String gerarSenha(String identificador) {

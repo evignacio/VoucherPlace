@@ -4,10 +4,12 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.techchallenge.common.exception.ApplicationException;
 
 @Getter
 @Setter
@@ -24,8 +26,45 @@ public class Telefone {
     private TipoTelefone tipo;
 
     public Telefone(String ddd, String numero) {
+        this.setDdd(ddd);
+        this.setNumero(numero);
+        this.tipo = this.getTipo();
+    }
+
+    private void setDdd(@NotNull String ddd) {
+        var exception = ApplicationException.buildValidationException("DDD invalido");
+
+        if (ddd.isEmpty())
+            throw exception;
+
+        ddd = ddd.replace(" ", "");
+        ddd = ddd.replaceAll("\\D", "");
+
+        if (ddd.length() != 2)
+            throw exception;
+
         this.ddd = ddd;
+    }
+
+    private void setNumero(@NotNull String numero) {
+        var exception = ApplicationException.buildValidationException("Numero invalido");
+
+        if (numero.isEmpty())
+            throw exception;
+
+        numero = numero.replace(" ", "");
+        numero = numero.replaceAll("\\D", "");
+
+        if (numero.length() < 8 || numero.length() > 9)
+            throw exception;
+
         this.numero = numero;
-        this.tipo = TipoTelefone.FIXO;
+    }
+
+    public TipoTelefone getTipo() {
+        if (this.numero.charAt(0) != '9')
+            return TipoTelefone.FIXO;
+
+        return TipoTelefone.MOVEL;
     }
 }

@@ -1,4 +1,4 @@
-package org.techchallenge.gestaocontas.domain.valueobject;
+package org.techchallenge.checkout.domain.valueobject;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

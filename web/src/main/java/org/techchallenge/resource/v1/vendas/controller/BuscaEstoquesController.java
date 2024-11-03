@@ -7,8 +7,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.techchallenge.resource.v1.response.Resposta;
+import org.techchallenge.resource.v1.Resposta;
 import org.techchallenge.vendas.application.service.BuscarEstoquesService;
+import org.techchallenge.vendas.domain.entity.Estoque;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/estoques")
@@ -19,7 +22,7 @@ public class BuscaEstoquesController {
     private final BuscarEstoquesService buscarEstoquesService;
 
     @GetMapping()
-    public ResponseEntity<Resposta> cadastrar() {
+    public ResponseEntity<Resposta<List<Estoque>>> cadastrar() {
         var estoques = this.buscarEstoquesService.buscar();
         return new ResponseEntity<>(Resposta.criar(estoques), HttpStatus.OK);
     }
