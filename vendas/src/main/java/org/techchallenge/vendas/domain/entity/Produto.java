@@ -20,6 +20,8 @@ public class Produto implements Serializable {
     @Id
     @Column(name = "sku", nullable = false)
     private String sku;
+    @Column(name = "idEmpresa", nullable = false)
+    private Long idEmpresa;
     @Column(name = "nome")
     private String nome;
     @Column(name = "fabricante")
@@ -31,5 +33,11 @@ public class Produto implements Serializable {
     @ManyToMany(mappedBy = "produtos")
     List<Categoria> categorias;
 
-
+    public Produto(String sku, Long idEmpresa, String nome, String fabricante, BigDecimal preco) {
+        this.sku = sku;
+        this.idEmpresa = idEmpresa;
+        this.nome = nome;
+        this.fabricante = fabricante;
+        this.preco = preco;
+    }
 }

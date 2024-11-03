@@ -1,5 +1,6 @@
 package org.techchallenge.resource.v1.vendas.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,7 @@ import org.techchallenge.vendas.application.service.CadastroCategoriaService;
 @RestController
 @RequestMapping("/categorias")
 @RequiredArgsConstructor
+@Tag(name = "Categorias")
 public class CadastroCategoriaController {
 
     private final CadastroCategoriaService cadastroCategoriaService;

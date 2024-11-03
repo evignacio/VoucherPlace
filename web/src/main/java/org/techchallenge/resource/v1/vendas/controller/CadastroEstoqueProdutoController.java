@@ -1,5 +1,6 @@
 package org.techchallenge.resource.v1.vendas.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,10 +16,12 @@ import org.techchallenge.vendas.application.service.CadastroEstoqueProdutoServic
 @RestController
 @RequestMapping("/estoques")
 @RequiredArgsConstructor
+@Tag(name = "Estoque")
 public class CadastroEstoqueProdutoController {
 
     private final CadastroEstoqueProdutoService cadastroEstoqueProdutoService;
 
+    //TODO: implementar validacao de empresa para esse fluxo
     @PostMapping
     public ResponseEntity<Resposta> cadastrar(@RequestBody @Valid CadastroEstoqueProdutoRequest request) {
         this.cadastroEstoqueProdutoService.cadastrar(request.sku(), request.quantidade());

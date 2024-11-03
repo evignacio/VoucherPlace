@@ -1,5 +1,6 @@
 package org.techchallenge.resource.v1.vendas.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,13 +16,14 @@ import org.techchallenge.vendas.application.service.CadastroProdutoService;
 @RestController
 @RequestMapping("/produtos")
 @RequiredArgsConstructor
+@Tag(name = "Produtos")
 public class CadastroProdutoController {
 
     private final CadastroProdutoService cadastroProdutoService;
 
     @PostMapping
     public ResponseEntity<Resposta> cadastrar(@RequestBody @Valid CadastroProdutoRequest request) {
-        this.cadastroProdutoService.cadastrar(request.nome(), request.sku(), request.fabricante(), request.preco(), request.categorias());
+        this.cadastroProdutoService.cadastrar(request.nome(), request.sku(), request.idEmpresa(), request.fabricante(), request.preco());
         return new ResponseEntity<>(Resposta.criar(), HttpStatus.CREATED);
     }
 
