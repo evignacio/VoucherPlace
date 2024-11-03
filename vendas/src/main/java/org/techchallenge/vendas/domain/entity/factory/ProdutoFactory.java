@@ -10,7 +10,7 @@ public abstract class ProdutoFactory {
 
     }
 
-    public static Produto criar(String nome, String sku, String fabricante, BigDecimal preco) {
-        return new Produto(nome, sku, fabricante, preco, null);
+    public static Produto criar(String nome, String sku, Long idEmpresa, String fabricante, BigDecimal preco) {
+        return new Produto(sku, idEmpresa, nome, fabricante, preco);
     }
 }
