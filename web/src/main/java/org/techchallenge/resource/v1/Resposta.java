@@ -3,19 +3,25 @@ package org.techchallenge.resource.v1;
 import lombok.Getter;
 
 @Getter
-public class Resposta {
+public class Resposta<T> {
     private final Mensagem mensagem;
+    private final T corpo;
 
-    private Resposta(Mensagem mensagem) {
+    private Resposta(Mensagem mensagem, T corpo) {
         this.mensagem = mensagem;
+        this.corpo = corpo;
     }
 
     public static Resposta criar() {
-        return new Resposta(new Mensagem(0, "Operacao realizada com sucesso"));
+        return new Resposta(new Mensagem(0, "Operacao realizada com sucesso"), null);
+    }
+
+    public static Resposta criar(Object corpo) {
+        return new Resposta(new Mensagem(0, "Operacao realizada com sucesso"), corpo);
     }
 
     public static Resposta criar(int codigo, String mensagem) {
-        return new Resposta(new Mensagem(codigo, mensagem));
+        return new Resposta(new Mensagem(codigo, mensagem), null);
     }
 
     @Getter
