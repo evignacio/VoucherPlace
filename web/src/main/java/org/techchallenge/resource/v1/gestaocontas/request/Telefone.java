@@ -1,4 +1,4 @@
-package org.techchallenge.resource.v1.request;
+package org.techchallenge.resource.v1.gestaocontas.request;
 
 import jakarta.validation.constraints.Size;
 
