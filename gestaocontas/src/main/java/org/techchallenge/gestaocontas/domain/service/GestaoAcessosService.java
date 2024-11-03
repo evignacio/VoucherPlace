@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.techchallenge.common.exception.ApplicationException;
 
 @Service
-public class GerarSenhaService {
+public class GestaoAcessosService {
     private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     public String gerarSenha(String identificador) {

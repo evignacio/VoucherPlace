@@ -1,4 +1,4 @@
-package org.techchallenge.resource.v1.gestaocontas;
+package org.techchallenge.resource.v1.gestaocontas.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +15,7 @@ import org.techchallenge.gestaocontas.domain.valueobject.Email;
 import org.techchallenge.gestaocontas.domain.valueobject.Telefone;
 import org.techchallenge.resource.v1.Resposta;
 import org.techchallenge.resource.v1.gestaocontas.request.CadastroClienteRequest;
+import org.techchallenge.resource.v1.gestaocontas.response.CadastroClienteResponse;
 
 @RestController
 @RequiredArgsConstructor
@@ -24,9 +25,9 @@ public class CadastroClienteController {
     private final CadastroClienteService cadastroClienteService;
 
     @PostMapping
-    public ResponseEntity<Resposta> cadastrar(@Valid @RequestBody CadastroClienteRequest request) {
-        this.cadastroClienteService.cadastrar(this.toCliente(request));
-        return new ResponseEntity<>(Resposta.criar(), HttpStatus.CREATED);
+    public ResponseEntity<Resposta<CadastroClienteResponse>> cadastrar(@Valid @RequestBody CadastroClienteRequest request) {
+        long idCliente = this.cadastroClienteService.cadastrar(this.toCliente(request));
+        return new ResponseEntity<>(Resposta.criar(new CadastroClienteResponse(idCliente)), HttpStatus.CREATED);
     }
 
     private Cliente toCliente(CadastroClienteRequest request) {

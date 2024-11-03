@@ -6,8 +6,8 @@ import org.techchallenge.gestaocontas.domain.entity.factory.EmpresaFactory;
 import org.techchallenge.gestaocontas.domain.repository.ConsultaDetalhadaEmpresaRepository;
 import org.techchallenge.gestaocontas.domain.repository.EmpresaRepository;
 import org.techchallenge.gestaocontas.domain.repository.NotificacaoRepository;
-import org.techchallenge.gestaocontas.domain.service.ConsultarEmpresaService;
-import org.techchallenge.gestaocontas.domain.service.GerarSenhaService;
+import org.techchallenge.gestaocontas.domain.service.EmpresaService;
+import org.techchallenge.gestaocontas.domain.service.GestaoAcessosService;
 import org.techchallenge.gestaocontas.domain.valueobject.Cnpj;
 import org.techchallenge.gestaocontas.domain.valueobject.Contato;
 import org.techchallenge.gestaocontas.domain.valueobject.Email;
@@ -18,11 +18,11 @@ import org.techchallenge.common.exception.ApplicationException;
 public class CadastroEmpresaService {
     private final ConsultaDetalhadaEmpresaRepository consultaDetalhadaEmpresaRepository;
     private final EmpresaRepository empresaRepository;
-    private final GerarSenhaService gerarSenhaService;
+    private final GestaoAcessosService gerarSenhaService;
     private final NotificacaoRepository notificacaoRepository;
-    private final ConsultarEmpresaService consultarEmpresaService;
+    private final EmpresaService consultarEmpresaService;
 
-    public void cadastrar(Cnpj cnpj, Email emailAcesso, Contato contato) {
+    public long cadastrar(Cnpj cnpj, Email emailAcesso, Contato contato) {
         if (consultarEmpresaService.cadastroJaRealizado(cnpj))
             throw ApplicationException.buildBusinessException("Empresa ja cadastrada");
 
@@ -32,5 +32,7 @@ public class CadastroEmpresaService {
         this.notificacaoRepository.notificarEmpresaCadastro(empresa, senha);
         empresa.setSenhaAcesso(this.gerarSenhaService.criptografarSenha(senha));
         this.empresaRepository.salvar(empresa);
+
+        return empresa.getId();
     }
 }

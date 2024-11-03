@@ -16,7 +16,7 @@ public class Resposta<T> {
         return new Resposta(new Mensagem(0, "Operacao realizada com sucesso"), null);
     }
 
-    public static Resposta criar(Object corpo) {
+    public static <T> Resposta criar(T corpo) {
         return new Resposta(new Mensagem(0, "Operacao realizada com sucesso"), corpo);
     }
 

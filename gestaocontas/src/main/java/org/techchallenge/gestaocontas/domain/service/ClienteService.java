@@ -10,7 +10,7 @@ import org.techchallenge.gestaocontas.domain.valueobject.Cpf;
 
 @Service
 @RequiredArgsConstructor
-public class ConsultarClienteService {
+public class ClienteService {
     private final ClienteRepository clienteRepository;
 
     public Cliente consultar(long idCliente) {

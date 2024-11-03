@@ -1,4 +1,4 @@
-package org.techchallenge.resource.v1.gestaocontas;
+package org.techchallenge.resource.v1.gestaocontas.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +18,7 @@ public class CadastrarEnderecoClienteController {
     private final CadastrarEnderecoClienteServico cadastrarEnderecoClienteServico;
 
     @PostMapping("/enderecos")
-    public ResponseEntity<Resposta> cadastrar(@PathVariable long idCliente, @Valid @RequestBody CadastrarEnderecoClienteRequest request) {
+    public ResponseEntity<Resposta<Void>> cadastrar(@PathVariable long idCliente, @Valid @RequestBody CadastrarEnderecoClienteRequest request) {
         this.cadastrarEnderecoClienteServico.cadastrar(idCliente, this.toEndereco(request));
         return new ResponseEntity<>(Resposta.criar(), HttpStatus.CREATED);
     }

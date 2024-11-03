@@ -8,6 +8,6 @@ import org.techchallenge.gestaocontas.domain.valueobject.Cnpj;
 import java.util.Optional;
 
 @Component
-public interface EmpresaJPARepository extends JpaRepository<Empresa, String> {
+public interface EmpresaJPARepository extends JpaRepository<Empresa, Long> {
     Optional<Empresa> findByCnpj(Cnpj cnpj);
 }

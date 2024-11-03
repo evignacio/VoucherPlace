@@ -15,6 +15,11 @@ public class EmpresaRepositoryImpl implements EmpresaRepository {
     private final EmpresaJPARepository empresaJPARepository;
 
     @Override
+    public Optional<Empresa> consultar(long idEmpresa) {
+        return this.empresaJPARepository.findById(idEmpresa);
+    }
+
+    @Override
     public Optional<Empresa> consultar(Cnpj cnpj) {
         return this.empresaJPARepository.findByCnpj(cnpj);
     }

@@ -1,4 +1,4 @@
-package org.techchallenge.resource.v1.gestaocontas;
+package org.techchallenge.resource.v1.gestaocontas.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +12,7 @@ import org.techchallenge.gestaocontas.domain.valueobject.Email;
 import org.techchallenge.gestaocontas.domain.valueobject.Telefone;
 import org.techchallenge.resource.v1.gestaocontas.request.CadastroEmpresaRequest;
 import org.techchallenge.resource.v1.Resposta;
+import org.techchallenge.resource.v1.gestaocontas.response.CadastroEmpresaResponse;
 
 @RestController
 @RequestMapping("/empresas")
@@ -21,9 +22,9 @@ public class CadastroEmpresaController {
     private final CadastroEmpresaService cadastroEmpresaService;
 
     @PostMapping
-    public ResponseEntity<Resposta> cadastrar(@RequestBody @Valid CadastroEmpresaRequest request) {
-        this.cadastroEmpresaService.cadastrar(this.toCnpj(request), this.toEmail(request), this.toContato(request));
-        return new ResponseEntity<>(Resposta.criar(), HttpStatus.CREATED);
+    public ResponseEntity<Resposta<CadastroEmpresaResponse>> cadastrar(@RequestBody @Valid CadastroEmpresaRequest request) {
+        long idEmpresa = this.cadastroEmpresaService.cadastrar(this.toCnpj(request), this.toEmail(request), this.toContato(request));
+        return new ResponseEntity<>(Resposta.criar(new CadastroEmpresaResponse(idEmpresa)), HttpStatus.CREATED);
     }
 
     private Cnpj toCnpj(CadastroEmpresaRequest request) {

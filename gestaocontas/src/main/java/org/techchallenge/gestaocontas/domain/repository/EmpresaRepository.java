@@ -6,6 +6,9 @@ import org.techchallenge.gestaocontas.domain.valueobject.Cnpj;
 import java.util.Optional;
 
 public interface EmpresaRepository {
+    Optional<Empresa> consultar(long idEmrpesa);
+
     Optional<Empresa> consultar(Cnpj cnpj);
+
     Empresa salvar(Empresa empresa);
 }
