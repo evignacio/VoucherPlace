@@ -7,6 +7,7 @@ import org.techchallenge.vendas.domain.entity.factory.ProdutoFactory;
 import org.techchallenge.vendas.domain.repository.ProdutoRepository;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -14,9 +15,9 @@ import java.math.BigDecimal;
 public class CadastroProdutoService {
     private final ProdutoRepository produtoRepository;
 
-    public void cadastrar(String nome, String sku, String fabricante, BigDecimal preco) {
+    public void cadastrar(String nome, String sku, String fabricante, BigDecimal preco, List<String> categorias) {
         log.infof("INIT %s.cadastrar", this.getClass().getName());
-        var produto = ProdutoFactory.criar(nome, sku, fabricante, preco);
+        var produto = ProdutoFactory.criar(nome, sku, fabricante, preco, categorias);
         this.produtoRepository.salvar(produto);
     }
 }

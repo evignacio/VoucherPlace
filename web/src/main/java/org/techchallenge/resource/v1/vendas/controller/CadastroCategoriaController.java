@@ -9,19 +9,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.techchallenge.resource.v1.response.Resposta;
-import org.techchallenge.resource.v1.vendas.request.CadastroProdutoRequest;
-import org.techchallenge.vendas.application.service.CadastroProdutoService;
+import org.techchallenge.resource.v1.vendas.request.CadastroCategoriaRequest;
+import org.techchallenge.vendas.application.service.CadastroCategoriaService;
 
 @RestController
-@RequestMapping("/produtos")
+@RequestMapping("/categorias")
 @RequiredArgsConstructor
-public class CadastroProdutoController {
+public class CadastroCategoriaController {
 
-    private final CadastroProdutoService cadastroProdutoService;
+    private final CadastroCategoriaService cadastroCategoriaService;
 
     @PostMapping
-    public ResponseEntity<Resposta> cadastrar(@RequestBody @Valid CadastroProdutoRequest request) {
-        this.cadastroProdutoService.cadastrar(request.nome(), request.sku(), request.fabricante(), request.preco(), request.categorias());
+    public ResponseEntity<Resposta> cadastrar(@RequestBody @Valid CadastroCategoriaRequest request) {
+        this.cadastroCategoriaService.cadastrar(request.titulo());
         return new ResponseEntity<>(Resposta.criar(), HttpStatus.CREATED);
     }
 
