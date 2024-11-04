@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.techchallenge.resource.v1.response.Resposta;
+import org.techchallenge.resource.v1.Resposta;
 import org.techchallenge.resource.v1.vendas.request.CadastroCategoriaRequest;
 import org.techchallenge.vendas.application.service.CadastroCategoriaService;
 

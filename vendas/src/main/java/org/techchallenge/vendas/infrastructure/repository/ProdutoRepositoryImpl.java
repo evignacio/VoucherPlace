@@ -8,7 +8,7 @@ import org.techchallenge.vendas.infrastructure.persistence.ProdutoJPARepository;
 
 import java.util.List;
 
-import static org.techchallenge.vendas.domain.exception.ApplicationException.buildBusinessException;
+import static org.techchallenge.common.exception.ApplicationException.buildBusinessException;
 
 @Repository
 @RequiredArgsConstructor
