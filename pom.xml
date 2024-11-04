@@ -89,7 +89,7 @@
         <module>vendas</module>
         <module>checkout</module>
         <module>gestaocontas</module>
-        <module>common</module>
+        <module>shared</module>
     </modules>
 
 </project>
