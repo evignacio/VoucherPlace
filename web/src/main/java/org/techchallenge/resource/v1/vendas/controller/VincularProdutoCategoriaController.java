@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.techchallenge.resource.v1.response.Resposta;
+import org.techchallenge.resource.v1.Resposta;
 import org.techchallenge.vendas.application.service.VinculoProdutoCategoriaService;
 
 import java.util.List;

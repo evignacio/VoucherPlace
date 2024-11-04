@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.techchallenge.vendas.domain.entity.Produto;
 import org.techchallenge.vendas.domain.repository.EstoqueRepository;
 import org.techchallenge.vendas.domain.repository.ProdutoRepository;
+import org.techchallenge.vendas.domain.service.ProdutoServiceImpl;
 
 import static org.techchallenge.vendas.domain.entity.factory.EstoqueFactory.criar;
 
@@ -14,7 +15,7 @@ import static org.techchallenge.vendas.domain.entity.factory.EstoqueFactory.cria
 @JBossLog
 public class CadastroEstoqueProdutoService {
     private final EstoqueRepository estoqueRepository;
-    private final ProdutoRepository produtoRepository;
+    private final ProdutoServiceImpl produtoService;
 
     public void cadastrar(String sku, int quantidade) {
         log.infof("INIT %s.cadastrar", this.getClass().getName());
@@ -24,6 +25,6 @@ public class CadastroEstoqueProdutoService {
     }
 
     protected Produto buscarProduto(String sku) {
-        return this.produtoRepository.buscar(sku);
+        return this.produtoService.buscar(sku);
     }
 }

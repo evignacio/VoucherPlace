@@ -1,4 +1,4 @@
-package org.techchallenge.gestaocontas.application.dto;
+package org.techchallenge.common.dto;
 
 
 public record EnderecoDTO(

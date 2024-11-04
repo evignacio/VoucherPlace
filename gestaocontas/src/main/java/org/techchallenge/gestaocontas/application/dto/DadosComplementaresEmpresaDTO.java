@@ -1,5 +1,7 @@
 package org.techchallenge.gestaocontas.application.dto;
 
+import org.techchallenge.common.dto.EnderecoDTO;
+
 public record DadosComplementaresEmpresaDTO(
         String nomeFantasia,
         String razaoSocial,

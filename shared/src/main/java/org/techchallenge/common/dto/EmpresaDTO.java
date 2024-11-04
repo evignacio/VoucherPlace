@@ -1,6 +1,5 @@
-package org.techchallenge.gestaocontas.application.dto;
+package org.techchallenge.common.dto;
 
-import org.techchallenge.gestaocontas.domain.valueobject.Contato;
 
 public record EmpresaDTO(
         long id,

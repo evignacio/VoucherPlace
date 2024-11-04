@@ -11,7 +11,6 @@ import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -20,8 +19,13 @@ import java.util.UUID;
 public class Pedido implements Serializable {
     private static final long serialVersionUID = -3481104978911282167L;
     @Id
+    @GeneratedValue
     @Column(name = "id", nullable = false)
-    private String id;
+    private long id;
+    @Column(name = "idEmpresa", nullable = false)
+    private long idEmpresa;
+    @Column(name = "idCliente", nullable = false)
+    private long idCliente;
     @Column(name = "valor_total", nullable = false)
     private BigDecimal valorTotal;
     @Column(name = "valor_total_com_desconto")
@@ -33,14 +37,23 @@ public class Pedido implements Serializable {
     private Endereco endereco;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "pedido")
     private Pagamento pagamaneto;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
+    private StatusPedido status;
 
-    public Pedido(BigDecimal valorTotal, BigDecimal valorTotalComDesconto, Set<ItemPedido> itens, Endereco endereco, Pagamento pagamaneto) {
-        this.id = UUID.randomUUID().toString();
-        this.valorTotal = valorTotal;
-        this.valorTotalComDesconto = valorTotalComDesconto;
+    public Pedido(long idEmpresa, long idCliente, Set<ItemPedido> itens, Endereco endereco) {
+        this.idEmpresa = idEmpresa;
+        this.idCliente = idCliente;
         this.itens = itens;
+        this.calculaValorTotal();
         this.endereco = endereco;
-        this.pagamaneto = pagamaneto;
+        this.status = StatusPedido.EM_ABERTO;
+    }
+
+    private void calculaValorTotal() {
+        this.valorTotal = this.itens.stream()
+                .map(ItemPedido::getValorTotal)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
     @Override

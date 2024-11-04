@@ -8,13 +8,18 @@
         <artifactId>voucherplace</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>org.techchallenge.checkout</groupId>
+    <groupId>org.techchallenge</groupId>
     <artifactId>checkout</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>org.techchallenge</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>shared</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.techchallenge</groupId>
+            <artifactId>gestaocontas</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

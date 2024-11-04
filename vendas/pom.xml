@@ -9,6 +9,14 @@
         <artifactId>voucherplace</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>org.techchallenge.vendas</groupId>
+    <groupId>org.techchallenge</groupId>
     <artifactId>vendas</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.techchallenge</groupId>
+            <artifactId>shared</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>
