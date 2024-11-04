@@ -1,11 +1,13 @@
 package org.techchallenge.resource.v1.checkout.request;
 
+import jakarta.validation.constraints.NotNull;
+
 import java.util.Set;
 
 public record CriarPedidoRequest(
-        long idEmpresa,
-        long idCliente,
-        Set<ItemPedidoRequest> itensPedido,
-        EnderecoRequest endereco
+        @NotNull long idEmpresa,
+        @NotNull long idCliente,
+        @NotNull Set<ItemPedidoRequest> itensPedido,
+        @NotNull EnderecoRequest endereco
 ) {
 }

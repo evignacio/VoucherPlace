@@ -1,9 +1,11 @@
 package org.techchallenge.checkout.domain.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.techchallenge.common.exception.ApplicationException;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -32,12 +34,19 @@ public class Pagamento implements Serializable {
     @Column(name = "data_pagamento", nullable = false)
     private LocalDate dataPagamento;
 
-    public Pagamento(Pedido pedido, BigDecimal valor, MetodoPagamento metodoPagamento, int quantidadeParcelas, LocalDate dataPagamento) {
+    public Pagamento(@NotNull Pedido pedido, @NotNull BigDecimal valor, @NotNull MetodoPagamento metodoPagamento, @NotNull int quantidadeParcelas) {
         this.pedido = pedido;
-        this.valor = valor;
+        this.setValor(valor);
         this.metodoPagamento = metodoPagamento;
         this.quantidadeParcelas = quantidadeParcelas;
-        this.dataPagamento = dataPagamento;
+        this.dataPagamento = LocalDate.now();
+    }
+
+    public void setValor(BigDecimal valor) {
+        if (valor.compareTo(BigDecimal.ZERO) < 0)
+            throw ApplicationException.buildValidationException("Valor pagamento deve ser maior que zero");
+
+        this.valor = valor;
     }
 
     @Override

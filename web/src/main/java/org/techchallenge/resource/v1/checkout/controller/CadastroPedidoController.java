@@ -1,4 +1,4 @@
-package org.techchallenge.resource.v1.checkout;
+package org.techchallenge.resource.v1.checkout.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
