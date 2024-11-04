@@ -9,22 +9,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.techchallenge.resource.v1.Resposta;
-import org.techchallenge.resource.v1.vendas.request.CadastroEstoqueProdutoRequest;
-import org.techchallenge.vendas.application.service.CadastroEstoqueProdutoService;
+import org.techchallenge.resource.v1.response.Resposta;
+import org.techchallenge.resource.v1.vendas.request.CadastroCategoriaRequest;
+import org.techchallenge.vendas.application.service.CadastroCategoriaService;
 
 @RestController
-@RequestMapping("/estoques")
+@RequestMapping("/categorias")
 @RequiredArgsConstructor
-@Tag(name = "Estoque")
-public class CadastroEstoqueProdutoController {
+@Tag(name = "Categorias")
+public class CadastroCategoriaController {
 
-    private final CadastroEstoqueProdutoService cadastroEstoqueProdutoService;
+    private final CadastroCategoriaService cadastroCategoriaService;
 
-    //TODO: implementar validacao de empresa para esse fluxo
     @PostMapping
-    public ResponseEntity<Resposta<Void>> cadastrar(@RequestBody @Valid CadastroEstoqueProdutoRequest request) {
-        this.cadastroEstoqueProdutoService.cadastrar(request.sku(), request.quantidade());
+    public ResponseEntity<Resposta> cadastrar(@RequestBody @Valid CadastroCategoriaRequest request) {
+        this.cadastroCategoriaService.cadastrar(request.titulo());
         return new ResponseEntity<>(Resposta.criar(), HttpStatus.CREATED);
     }
 

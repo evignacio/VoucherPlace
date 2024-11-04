@@ -1,5 +1,6 @@
 package org.techchallenge.resource.v1.vendas.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/estoques")
 @RequiredArgsConstructor
+@Tag(name = "Estoque")
 public class BuscaEstoquesController {
 
     private final BuscarEstoquesService buscarEstoquesService;

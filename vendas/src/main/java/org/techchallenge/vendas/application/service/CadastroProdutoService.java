@@ -14,9 +14,9 @@ import java.math.BigDecimal;
 public class CadastroProdutoService {
     private final ProdutoRepository produtoRepository;
 
-    public void cadastrar(String nome, String sku, String fabricante, BigDecimal preco) {
+    public void cadastrar(String nome, String sku, Long idEmpresa, String fabricante, BigDecimal preco) {
         log.infof("INIT %s.cadastrar", this.getClass().getName());
-        var produto = ProdutoFactory.criar(nome, sku, fabricante, preco);
+        var produto = ProdutoFactory.criar(nome, sku, idEmpresa, fabricante, preco);
         this.produtoRepository.salvar(produto);
     }
 }

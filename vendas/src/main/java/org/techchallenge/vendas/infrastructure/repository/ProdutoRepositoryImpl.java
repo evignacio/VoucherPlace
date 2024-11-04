@@ -6,6 +6,8 @@ import org.techchallenge.vendas.domain.entity.Produto;
 import org.techchallenge.vendas.domain.repository.ProdutoRepository;
 import org.techchallenge.vendas.infrastructure.persistence.ProdutoJPARepository;
 
+import java.util.List;
+
 import static org.techchallenge.vendas.domain.exception.ApplicationException.buildBusinessException;
 
 @Repository
@@ -22,5 +24,10 @@ public class ProdutoRepositoryImpl implements ProdutoRepository {
     public Produto buscar(String sku) {
         var ex = buildBusinessException("Produto nao existente com sku: " + sku);
         return produtoJPARepository.findBySku(sku).orElseThrow(() -> ex);
+    }
+
+    @Override
+    public List<Produto> buscar(List<String> skus) {
+        return produtoJPARepository.findBySkuIn(skus);
     }
 }
