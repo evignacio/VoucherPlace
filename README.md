@@ -8,7 +8,7 @@ VoucherPlace é uma aplicação Spring Boot para publicacao e venda de produtos 
 - [Stack](#stack)
 - [Instalação](#instalação)
 - [Swagger](#swagger)
-- [Desenvolvimento do projeto](#desenvolvimento do projeto)
+- [Desenvolvimento do projeto](#desenvolvimento-do-projeto)
 
 ## Stack
 * Java 21
