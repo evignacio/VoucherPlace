@@ -1,4 +1,4 @@
-package org.techchallenge.common.exception;
+package org.techchallenge.shared.exception;
 
 public class ApplicationException extends RuntimeException {
     private final ExceptionType exceptionType;

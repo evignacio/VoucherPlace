@@ -1,6 +1,6 @@
-package org.techchallenge.common.service;
+package org.techchallenge.shared.service;
 
-import org.techchallenge.common.dto.ClienteDTO;
+import org.techchallenge.shared.dto.ClienteDTO;
 
 public interface ClienteService {
 

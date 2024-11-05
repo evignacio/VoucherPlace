@@ -2,7 +2,7 @@ package org.techchallenge.gestaocontas.application.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.techchallenge.common.dto.ClienteDTO;
+import org.techchallenge.shared.dto.ClienteDTO;
 import org.techchallenge.gestaocontas.domain.service.ClienteServiceImpl;
 
 @Service

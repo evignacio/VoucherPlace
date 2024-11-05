@@ -1,4 +1,4 @@
-package org.techchallenge.common.dto;
+package org.techchallenge.shared.dto;
 
 import java.time.LocalDate;
 import java.util.Set;
