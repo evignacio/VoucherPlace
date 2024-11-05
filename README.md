@@ -51,7 +51,7 @@ Para executar as operações de forma mais rápida e fácil, recomendamos utiliz
 * [Postman V2.1](https://github.com/evignacio/VoucherPlace/blob/main/VoucherPlace.postman_collection-v2.1.json)
 
 ## Desenvolvimento do projeto
-### Dicionario
+### Dicionário
 ### Dicionário de linguagem ubíqua
 * EPC - Empresa parceira vendedora.<br>
 * Cliente - Usuário comprador<br>
