@@ -14,21 +14,21 @@ import static org.techchallenge.shared.exception.ApplicationException.buildBusin
 @Repository
 @RequiredArgsConstructor
 public class EstoqueRepositoryImpl implements EstoqueRepository {
-    private final EstoqueJPARepository EstoqueJPARepository;
+    private final EstoqueJPARepository estoqueJPARepository;
 
     @Override
     public Estoque salvar(Estoque estoque) {
-        return this.EstoqueJPARepository.save(estoque);
+        return this.estoqueJPARepository.save(estoque);
     }
 
     @Override
     public Estoque buscar(String sku) {
         var ex = buildBusinessException("Estoque nao existente com sku: " + sku);
-        return EstoqueJPARepository.findByProdutoSku(sku).orElseThrow(() -> ex);
+        return estoqueJPARepository.findByProdutoSku(sku).orElseThrow(() -> ex);
     }
 
     @Override
     public List<Estoque> listar() {
-        return EstoqueJPARepository.findAll();
+        return estoqueJPARepository.findAll();
     }
 }
