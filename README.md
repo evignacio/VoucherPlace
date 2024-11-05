@@ -7,6 +7,7 @@ VoucherPlace é uma aplicação Spring Boot para publicação e venda de produto
 
 - [Stack](#stack)
 - [Instalação](#instalação)
+- [Banco](#banco)
 - [Swagger](#swagger)
 - [Desenvolvimento do projeto](#desenvolvimento-do-projeto)
 
@@ -50,6 +51,14 @@ Para executar as operações de forma mais rápida e fácil, é recomendado util
 * [Postman V2.0](https://github.com/evignacio/VoucherPlace/blob/main/VoucherPlace.postman_collection_v2.0.json)
 * [Postman V2.1](https://github.com/evignacio/VoucherPlace/blob/main/VoucherPlace.postman_collection-v2.1.json)
 
+## Banco
+```
+Pode-se acessar o banco de dados h2 através da URL: http://localhost:8080/h2-console
+Preencha o campo JDBC URL com : "jdbc:h2:mem:voucherplace"
+Preencha o campo Password com: "password"
+clique em Connect
+```
+![img_4.png](img_4.png)
 ## Desenvolvimento do projeto
 ### Dicionário
 
