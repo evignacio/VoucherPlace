@@ -213,6 +213,25 @@
 								"type": "text/javascript",
 								"packages": {}
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var jsonRequest = pm.request.body.raw",
+									"let min = 100;",
+									"",
+									"// Gerar o número aleatório entre 100 e 999",
+									"let randomNum = Math.floor(Math.random() * (999 - min + 1) + min).toString();",
+									"",
+									"// Definir o valor do SKU com os três primeiros caracteres",
+									"pm.collectionVariables.set(\"sku\", \"FDD\" + randomNum.substr(0, 3));",
+									"",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
 						}
 					],
 					"request": {
@@ -220,7 +239,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"nome\": \"Camera\",\n  \"sku\": \"FDSD98\",\n  \"idEmpresa\": 1,\n  \"descricao\": \"Camera Ultra HD\",\n  \"fabricante\": \"Sony\",\n  \"preco\": 123\n}",
+							"raw": "{\n  \"nome\": \"Camera\",\n  \"sku\": \"{{sku}}\",\n  \"idEmpresa\": 1,\n  \"descricao\": \"Camera Ultra HD\",\n  \"fabricante\": \"Sony\",\n  \"preco\": 123\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -246,12 +265,24 @@
 			"item": [
 				{
 					"name": "Inicia estoque produto",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"sku\": \"{{sku}}\",\n  \"quantidade\": 2\n}",
+							"raw": "{\n  \"sku\": \"{{sku}}\",\n  \"quantidade\": 20\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -301,6 +332,63 @@
 							],
 							"path": [
 								"estoques"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Criar carrinho",
+			"item": [
+				{
+					"name": "Cria carrinho com estoque",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sku\": \"{{sku}}\",\n    \"quantidade\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/carrinhos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"carrinhos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cria carrinho com estoque Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sku\": \"{{sku}}\",\n    \"quantidade\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/carrinhos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"carrinhos"
 							]
 						}
 					},

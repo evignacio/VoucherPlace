@@ -47,7 +47,8 @@ A documentação dos endpoints da API pode ser consultada através da seguinte u
 
 ## Postman
 Para executar as operações de forma mais rápida e fácil, é recomendado utilizar as collections Postman abaixo;
-* [Postman V2.0](https://github.com/evignacio/VoucherPlace/blob/main/VoucherPlace.postman_collection-v2.0.json)
+
+* [Postman V2.0](https://github.com/evignacio/VoucherPlace/blob/main/VoucherPlace.postman_collection_v2.0.json)
 * [Postman V2.1](https://github.com/evignacio/VoucherPlace/blob/main/VoucherPlace.postman_collection-v2.1.json)
 
 ## Desenvolvimento do projeto
