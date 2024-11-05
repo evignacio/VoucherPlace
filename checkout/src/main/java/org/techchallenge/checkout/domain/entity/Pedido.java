@@ -50,6 +50,16 @@ public class Pedido implements Serializable {
         this.status = StatusPedido.EM_ABERTO;
     }
 
+    public void efetuarPagamento(MetodoPagamento metodoPagamento, int qtdParcelas) {
+        final BigDecimal taxaDeDesconto = BigDecimal.valueOf(0.2);
+        if (MetodoPagamento.VOUCHER.equals(metodoPagamento)) {
+            BigDecimal valorDesconto = this.getValorTotal().multiply(taxaDeDesconto);
+            this.valorTotalComDesconto = this.getValorTotal().subtract(valorDesconto);
+        }
+        this.pagamaneto = new Pagamento(this, this.valorTotalComDesconto, metodoPagamento, qtdParcelas);
+        this.status = StatusPedido.CONCLUIDO;
+    }
+
     private void calculaValorTotal() {
         this.valorTotal = this.itens.stream()
                 .map(ItemPedido::getValorTotal)
