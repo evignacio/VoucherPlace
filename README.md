@@ -45,6 +45,11 @@ A documentação dos endpoints da API pode ser consultada através da seguinte u
 ```
 ![img.png](img.png)
 
+## Postman
+Para executar as operações de forma mais rápida e fácil, recomendamos utilizar as colletions do postman abaixo;
+* [Postman V2.0](https://github.com/evignacio/VoucherPlace/blob/main/VoucherPlace.postman_collection-v2.0.json)
+* [Postman V2.1](https://github.com/evignacio/VoucherPlace/blob/main/VoucherPlace.postman_collection-v2.1.json)
+
 ## Desenvolvimento do projeto
 ### Dicionario
 ### Dicionário de linguagem ubíqua
