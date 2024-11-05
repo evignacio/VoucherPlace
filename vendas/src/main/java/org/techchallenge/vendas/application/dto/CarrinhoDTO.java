@@ -1,4 +1,4 @@
-package org.techchallenge.shared.dto;
+package org.techchallenge.vendas.application.dto;
 
 
 import java.math.BigDecimal;
