@@ -6,7 +6,7 @@ import org.techchallenge.gestaocontas.domain.entity.Cliente;
 import org.techchallenge.gestaocontas.domain.repository.ClienteRepository;
 import org.techchallenge.gestaocontas.domain.service.ClienteServiceImpl;
 import org.techchallenge.gestaocontas.domain.service.GestaoAcessosService;
-import org.techchallenge.common.exception.ApplicationException;
+import org.techchallenge.shared.exception.ApplicationException;
 
 @Service
 @RequiredArgsConstructor

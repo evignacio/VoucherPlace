@@ -2,7 +2,7 @@ package org.techchallenge.gestaocontas.domain.entity.factory;
 
 import org.techchallenge.gestaocontas.application.dto.DadosComplementaresEmpresaDTO;
 import org.techchallenge.gestaocontas.domain.entity.Empresa;
-import org.techchallenge.common.exception.ApplicationException;
+import org.techchallenge.shared.exception.ApplicationException;
 import org.techchallenge.gestaocontas.domain.valueobject.Cnpj;
 import org.techchallenge.gestaocontas.domain.valueobject.Contato;
 import org.techchallenge.gestaocontas.domain.valueobject.Email;

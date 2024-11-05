@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.techchallenge.common.exception.ApplicationException;
+import org.techchallenge.shared.exception.ApplicationException;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

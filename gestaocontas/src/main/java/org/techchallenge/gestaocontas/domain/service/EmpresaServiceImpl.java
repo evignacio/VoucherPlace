@@ -2,11 +2,11 @@ package org.techchallenge.gestaocontas.domain.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.techchallenge.common.dto.ContatoDTO;
-import org.techchallenge.common.dto.EmpresaDTO;
-import org.techchallenge.common.dto.EnderecoDTO;
-import org.techchallenge.common.exception.ApplicationException;
-import org.techchallenge.common.service.EmpresaService;
+import org.techchallenge.shared.dto.ContatoDTO;
+import org.techchallenge.shared.dto.EmpresaDTO;
+import org.techchallenge.shared.dto.EnderecoDTO;
+import org.techchallenge.shared.exception.ApplicationException;
+import org.techchallenge.shared.service.EmpresaService;
 import org.techchallenge.gestaocontas.domain.repository.EmpresaRepository;
 import org.techchallenge.gestaocontas.domain.valueobject.Cnpj;
 

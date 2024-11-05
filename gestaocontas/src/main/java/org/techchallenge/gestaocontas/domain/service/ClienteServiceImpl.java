@@ -3,12 +3,12 @@ package org.techchallenge.gestaocontas.domain.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.techchallenge.common.dto.ClienteDTO;
-import org.techchallenge.common.dto.EnderecoDTO;
-import org.techchallenge.common.service.ClienteService;
+import org.techchallenge.shared.dto.ClienteDTO;
+import org.techchallenge.shared.dto.EnderecoDTO;
+import org.techchallenge.shared.service.ClienteService;
 import org.techchallenge.gestaocontas.domain.entity.Cliente;
 import org.techchallenge.gestaocontas.domain.repository.ClienteRepository;
-import org.techchallenge.common.exception.ApplicationException;
+import org.techchallenge.shared.exception.ApplicationException;
 import org.techchallenge.gestaocontas.domain.valueobject.Cpf;
 
 import java.util.Set;

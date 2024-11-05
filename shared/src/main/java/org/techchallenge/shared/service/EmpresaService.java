@@ -1,7 +1,7 @@
-package org.techchallenge.common.service;
+package org.techchallenge.shared.service;
 
 
-import org.techchallenge.common.dto.EmpresaDTO;
+import org.techchallenge.shared.dto.EmpresaDTO;
 
 public interface EmpresaService {
 

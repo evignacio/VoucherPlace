@@ -2,11 +2,11 @@ package org.techchallenge.vendas.domain.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.techchallenge.common.service.ProdutoService;
+import org.techchallenge.shared.service.ProdutoService;
 import org.techchallenge.vendas.domain.entity.Produto;
 import org.techchallenge.vendas.domain.repository.ProdutoRepository;
 
-import static org.techchallenge.common.exception.ApplicationException.buildBusinessException;
+import static org.techchallenge.shared.exception.ApplicationException.buildBusinessException;
 
 @Service
 @RequiredArgsConstructor

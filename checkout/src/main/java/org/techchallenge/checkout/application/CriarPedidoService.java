@@ -7,11 +7,10 @@ import org.techchallenge.checkout.domain.entity.Pedido;
 import org.techchallenge.checkout.domain.repository.PedidoRepository;
 import org.techchallenge.checkout.domain.repository.ValidaCoberturaEntregaRepository;
 import org.techchallenge.checkout.domain.valueobject.Endereco;
-import org.techchallenge.common.exception.ApplicationException;
-import org.techchallenge.common.service.ClienteService;
-import org.techchallenge.common.service.EmpresaService;
-import org.techchallenge.common.service.ProdutoService;
-import org.techchallenge.gestaocontas.domain.repository.ClienteRepository;
+import org.techchallenge.shared.exception.ApplicationException;
+import org.techchallenge.shared.service.ClienteService;
+import org.techchallenge.shared.service.EmpresaService;
+import org.techchallenge.shared.service.ProdutoService;
 
 import java.util.Set;
 

@@ -1,4 +1,4 @@
-package org.techchallenge.common.exception;
+package org.techchallenge.shared.exception;
 
 public enum ExceptionType {
     BUSINESS(-1),

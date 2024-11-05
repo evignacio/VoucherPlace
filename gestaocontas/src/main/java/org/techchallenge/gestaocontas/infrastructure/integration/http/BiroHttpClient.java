@@ -1,7 +1,7 @@
 package org.techchallenge.gestaocontas.infrastructure.integration.http;
 
 import org.springframework.stereotype.Component;
-import org.techchallenge.common.dto.EnderecoDTO;
+import org.techchallenge.shared.dto.EnderecoDTO;
 import org.techchallenge.gestaocontas.application.dto.DadosComplementaresEmpresaDTO;
 import org.techchallenge.gestaocontas.domain.valueobject.Cnpj;
 

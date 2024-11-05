@@ -9,6 +9,7 @@ import org.techchallenge.vendas.infrastructure.persistence.ProdutoJPARepository;
 import java.util.List;
 import java.util.Optional;
 
+
 @Repository
 @RequiredArgsConstructor
 public class ProdutoRepositoryImpl implements ProdutoRepository {
