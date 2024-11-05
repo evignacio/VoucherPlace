@@ -46,7 +46,7 @@ A documentação dos endpoints da API pode ser consultada através da seguinte u
 ![img.png](img.png)
 
 ## Postman
-Para executar as operações de forma mais rápida e fácil, recomendamos utilizar as colletions do postman abaixo;
+Para executar as operações de forma mais rápida e fácil, é recomendado utilizar as collections Postman abaixo;
 * [Postman V2.0](https://github.com/evignacio/VoucherPlace/blob/main/VoucherPlace.postman_collection-v2.0.json)
 * [Postman V2.1](https://github.com/evignacio/VoucherPlace/blob/main/VoucherPlace.postman_collection-v2.1.json)
 
@@ -63,8 +63,8 @@ Para executar as operações de forma mais rápida e fácil, recomendamos utiliz
 * Bureau(Biro) - Serviço de consulta fiscal de empresas<br>
 * SKU - Código identificador do produto por especificação<br>
 ### Diagramas de fluxo
-Foi Domain Driven Design para construcao dos fluxos:
- e toda a documentacao pode ser acessada pelo [Miro](https://miro.com/app/board/uXjVKizn_1o=/)
+Foi utilizado Domain Driven Design para construção dos fluxos:
+ e toda a documentação pode ser acessada pelo link: [Miro](https://miro.com/app/board/uXjVKizn_1o=/)
 
 ![img_1.png](img_1.png) ![img_2.png](img_2.png)
 ![img_3.png](img_3.png)
