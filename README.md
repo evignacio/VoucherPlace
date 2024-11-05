@@ -1,14 +1,14 @@
 # VoucherPlace
 Projeto criado para implementar as práticas estudadas no primeiro módulo (Domain Driven Design) do curso de pós-graduação em Arquitetura em Java - FIAP, Grupo 27.
 
-VoucherPlace é uma aplicação Spring Boot para publicacao e venda de produtos permitindo o pagamento atraves de vouchers(beneficios).
+VoucherPlace é uma aplicação Spring Boot para publicação e venda de produtos, permitindo o pagamento através de vouchers (benefícios).
 
 ## Sumário
 
 - [Stack](#stack)
 - [Instalação](#instalação)
 - [Swagger](#swagger)
-- [Desenvolvimento do projeto](#desenvolvimento do projeto)
+- [Desenvolvimento do projeto](#desenvolvimento-do-projeto)
 
 ## Stack
 * Java 21
@@ -21,7 +21,7 @@ VoucherPlace é uma aplicação Spring Boot para publicacao e venda de produtos 
 
 Para instalar o projeto localmente, siga os passos abaixo: <br>
 
-**Certifique-se de ter o JAVA 21 instalado em sua maquina**
+**Certifique-se de ter o JAVA 21 instalado em sua máquina**
 
 **LINUX**
 ```bash
@@ -45,8 +45,14 @@ A documentação dos endpoints da API pode ser consultada através da seguinte u
 ```
 ![img.png](img.png)
 
+## Postman
+Para executar as operações de forma mais rápida e fácil, recomendamos utilizar as colletions do postman abaixo;
+* [Postman V2.0](https://github.com/evignacio/VoucherPlace/blob/main/VoucherPlace.postman_collection-v2.0.json)
+* [Postman V2.1](https://github.com/evignacio/VoucherPlace/blob/main/VoucherPlace.postman_collection-v2.1.json)
+
 ## Desenvolvimento do projeto
-### Dicionario
+### Dicionário
+
 ### Dicionário de linguagem ubíqua
 * EPC - Empresa parceira vendedora.<br>
 * Cliente - Usuário comprador<br>

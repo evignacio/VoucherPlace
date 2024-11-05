@@ -1,0 +1,365 @@
+{
+	"info": {
+		"_postman_id": "8151040b-501e-46f8-8de6-2f7bff3892dc",
+		"name": "VoucherPlace",
+		"description": "# 📄 Inicie aqui\n\nsa collection foi criada para listar as operações existentes na aplicação VoucherPlace,\n\npara mais informações entre em contato com os desenvolvedores [eignacio403@gmail.com](https://mailto:eignacio403@gmail.com/), e [ariel.neumeyer@gmail.com](https://mailto:ariel.neumeyer@gmail.com/)\n\n## 🔖 Como utilizar a coleção?\n\nA aplicação VoucherPlace possui dois fluxos principais (**cadastro de empresas e publicação de produtos/compra de produtos**), ambos os fluxos contêm as operações listadas na coleção. Para utilizá-los, basta executar as operações de cada pasta em sequência.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "7170190"
+	},
+	"item": [
+		{
+			"name": "Cadastro empresa",
+			"item": [
+				{
+					"name": "Empresa sem restricao",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"var jsonResponse = pm.response.json();",
+									"if(jsonResponse.corpo !== null){",
+									"    pm.collectionVariables.set(\"idEmpresa\", jsonResponse.corpo.idEmpresa);",
+									"}",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"emailAcesso\": \"evandro@hotmail.com\",\n    \"cnpj\": \"02535864000133\",\n    \"emailContato\": \"evandro@com\",\n    \"telefone\": {\n        \"ddd\" : \"13\",\n        \"numero\" : \"997125009\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/empresas"
+					},
+					"response": []
+				},
+				{
+					"name": "Empresa com restricao na receita",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"emailAcesso\": \"evandro@hotmail.com\",\n    \"cnpj\": \"05720367000101\",\n    \"emailContato\": \"evandro@com\",\n    \"telefone\": {\n        \"ddd\" : \"13\",\n        \"numero\" : \"997125088\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/empresas"
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar empresa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/empresas/{{idEmpresa}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cadastrar cliente",
+			"item": [
+				{
+					"name": "Cliente valido",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"var jsonResponse = pm.response.json();",
+									"if(jsonResponse.corpo !== null){",
+									"    pm.collectionVariables.set(\"idCliente\", jsonResponse.corpo.idCliente);",
+									"}",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"emailAcesso\": \"teste@teste\",\n    \"senhaAcesso\": \"teste123\",\n    \"nome\": \"Evandro\",\n    \"sobreNome\": \"dunga\",\n    \"cpf\": \"44992687884\",\n    \"dataNascimento\": \"1994-07-11\",\n    \"telefone\": {\n        \"ddd\": \"13\",\n        \"numero\": \"997125069\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/clientes"
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar endereco de entrega cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"logradouro\": \"KKKK\",\n    \"numero\" : \"23\",\n    \"complemento\" : \"Em frente unimes\",\n    \"bairro\" : \"Ecruzilhada\",\n    \"cidade\" : \"Santos\",\n    \"estado\" : \"SP\",\n    \"cep\" : \"11070100\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/clientes/{{idCliente}}/enderecos"
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/clientes/{{idCliente}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cadastrar produto",
+			"item": [
+				{
+					"name": "Cadastro produto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"var jsonResponse = pm.response.json();",
+									"if(jsonResponse.corpo !== null){",
+									"    pm.collectionVariables.set(\"sku\", jsonResponse.corpo.sku);",
+									"}",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"Camera\",\n  \"sku\": \"FDSD98\",\n  \"idEmpresa\": 1,\n  \"descricao\": \"Camera Ultra HD\",\n  \"fabricante\": \"Sony\",\n  \"preco\": 123\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/produtos"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Iniciar estoque produto",
+			"item": [
+				{
+					"name": "Inicia estoque produto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"sku\": \"{{sku}}\",\n  \"quantidade\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/estoques"
+					},
+					"response": []
+				},
+				{
+					"name": "Ativar produto no estoque",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": "{{url}}/estoques/{{sku}}/ativar"
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar produtos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{url}}/estoques"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Efetuar pedido",
+			"item": [
+				{
+					"name": "Criar pedido",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"var jsonResponse = pm.response.json();",
+									"if(jsonResponse.corpo !== null){",
+									"    pm.collectionVariables.set(\"idPedido\", jsonResponse.corpo.idPedido);",
+									"}",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idEmpresa\": {{idEmpresa}},\n    \"idCliente\": {{idCliente}},\n    \"itensPedido\": [{\n        \"sku\" : \"{{sku}}\",\n        \"quantidade\" : 2,\n        \"valor\" : 10\n\n    }],\n    \"endereco\": {\n        \"logradouro\": \"Rua Parana Bial\",\n        \"numero\": \"23\",\n        \"complemento\": \"Em frente unimes\",\n        \"bairro\": \"Ecruzilhada\",\n        \"cidade\": \"Santos\",\n        \"estado\": \"SP\",\n        \"cep\": \"11070100\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/pedidos"
+					},
+					"response": []
+				},
+				{
+					"name": "Endereco de engtrega nao atendido",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"var jsonResponse = pm.response.json();",
+									"if(jsonResponse.corpo !== null){",
+									"    pm.collectionVariables.set(\"idPedido\", jsonResponse.corpo.idPedido);",
+									"}",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idEmpresa\": {{idEmpresa}},\n    \"idCliente\": {{idCliente}},\n    \"itensPedido\": [{\n        \"sku\" : \"{{sku}}\",\n        \"quantidade\" : 2,\n        \"valor\" : 10\n\n    }],\n    \"endereco\": {\n        \"logradouro\": \"Rua Parana Bial\",\n        \"numero\": \"23\",\n        \"complemento\": \"Em frente unimes\",\n        \"bairro\": \"Ecruzilhada\",\n        \"cidade\": \"Santos\",\n        \"estado\": \"SP\",\n        \"cep\": \"11025905\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/pedidos"
+					},
+					"response": []
+				},
+				{
+					"name": "Efetuar pagamento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"metodoPagamento\" : \"VOUCHER\",\n    \"qtdParcelas\" : 3,\n    \"voucher\" : {\n        \"nomeTitular\" : \"Vando\",\n        \"numero\" : \"1234567890123\",\n        \"dataVencimento\": \"11/29\",\n        \"cvv\" : \"123\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{url}}/pedidos/{{idPedido}}/pagamento"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8080"
+		},
+		{
+			"key": "idEmpresa",
+			"value": "0",
+			"type": "string"
+		},
+		{
+			"key": "idCliente",
+			"value": "0",
+			"type": "string"
+		},
+		{
+			"key": "sku",
+			"value": "0",
+			"type": "string"
+		},
+		{
+			"key": "idPedido",
+			"value": "0",
+			"type": "string"
+		}
+	]
+}
